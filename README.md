@@ -46,9 +46,9 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 4. Run the following command in the Powershell terminal after setting Icarus Verilog 12.0 as your compiler
 
 ```powershell
-# List all module files and your desired testbench file names as shown (removing parentheses)
-iverilog -g2012 -o sim.out (other-filename-here.sv testbench-filename-here.sv); vvp sim.out; if (Test-Path "retro_vending.vcd") { Start-Process gtkwave "retro_vending.vcd" }
+iverilog -g2012 -o sim.out src/*.sv tb/retro-vending_tb.sv && vvp sim.out && if exist retro_vending.vcd ( start gtkwave retro_vending.vcd )
 ```
+
 <a>
 <a name="make-your-own"></a>
   
