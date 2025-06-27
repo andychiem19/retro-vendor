@@ -39,17 +39,12 @@ module retro_vending_tb;
 
     #100 reset = 0;
 
-    /* USER CODE GOES HERE */
+    #50 coin_10 = 1;
+    #10 coin_10 = 0;
 
-    //example of inserting a coin
-    #50 coin_10 = 1
-    #10 coin_10 = 0
-
-    //example of scrolling through items
-    #50 next_item = 1
-    #10 next_item = 0
+    #50 next_item = 1;
+    #10 next_item = 0;
  
-    // select
     #100 select = 1;
     #100 select = 0;
 

@@ -101,12 +101,12 @@ module retro_vending_tb;
     /* USER CODE GOES HERE 
 
     //example of inserting a coin
-    #50 coin_10 = 1
-    #10 coin_10 = 0
+    #50 coin_10 = 1;
+    #10 coin_10 = 0;
 
     //example of scrolling through items
-    #50 next_item = 1
-    #10 next_item = 0
+    #50 next_item = 1;
+    #10 next_item = 0;
  
     // select
     #100 select = 1;
