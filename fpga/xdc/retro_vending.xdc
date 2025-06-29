@@ -1,6 +1,7 @@
 ## Clock (125 MHz)
 set_property PACKAGE_PIN K17 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
+create_clock -name sys_clk -period 8.0 [get_ports clk]
 
 ## Buttons (momentary)
 set_property PACKAGE_PIN Y16 [get_ports coin_10]

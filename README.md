@@ -5,6 +5,7 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 
 `Visual Studio Code`
 `Verilog/SystemVerilog`
+`Vivado`
 `Icarus Verilog 12.0`
 `GTKWave`
 
@@ -12,14 +13,13 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 
 #### **Learning Objectives**
 
-- Modular RTL design and finite state machine implementation
-- Edge detection and debouncing techniques for hardware synthesis 
-- Simulation-based debugging in GTKWave
-- RTL-to-hardware mapping and FPGA realization
+- RTL design and verification with FSM control, testbenches, and waveform debugging in GTKWave
+- Hardware-synthesizable I/O management using debouncing and edge-detection for real-world inputs
+- HDMI signal generation with clocked video timing logic for digital display output on FPGA
 
 ---
 
-#### **Project Features**
+#### **Project Features & Timeline**
 
 | Feature | Description | Timeline |
 |--------|-------------|--------|
@@ -28,13 +28,15 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 | Coin Accumulator | Accepts 5¢, 10¢, and 25¢ coins and maintains an accurate running total | 
 | Debounced Inputs | Edge-detected coin/button inputs for hardware synthesizability | 6/26/2025
 | Item Selection | Scrolling selector with four unique item-price pairs | 
-| Change Return | Stores leftover money after purchase for change return| 6/29/2025
+| Change Return | Stores leftover money after purchase for change return | 6/29/2025
+| FPGA Deployment Prep | Synthesis, implementation, constraints, and top-level wiring completed |
 
 *Planned Features* 
 | Feature | Description |
 |--------|-------------|
-| Pixel Display | Text-based video output using onboard SoC CPU + external monitor |
-| FPGA Deployment | Final implementation on Zynq board with a stylized UI |
+| Initial FPGA Deployment | Flashing bitstream to Zybo-Z7, with I/O limited to onboard buttons and LEDs |
+| HDMI Video Output | Direct framebuffer or text-based video output over HDMI from programmable logic (PL) |
+| Pixel Graphics | Simple pixel or tile-based UI |
 
 ---
 
