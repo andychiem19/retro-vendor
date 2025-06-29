@@ -15,6 +15,7 @@ module retro_vending ( // Main vending logic
 
   wire [7:0]  total;              // 8-bit register to store inserted total
   wire        next_item_pulse;    // Debounced signal for next_item button
+  wire        select_pulse;       // Debounced signal for select button
   reg [1:0]   state, next_state;  // Makes 2-bit registers to store states
   reg[1:0]    selected_item;      // Determines which item the user has selected for purchase
   reg [7:0]   item_prices [0:3];  
@@ -25,6 +26,14 @@ module retro_vending ( // Main vending logic
     .reset(reset),
     .in_signal(next_item),
     .pulse(next_item_pulse)
+  );
+
+  // Debounces select
+  edge_detector ed_sel (
+    .clk(clk),
+    .reset(reset),
+    .in_signal(select),
+    .pulse(select_pulse)
   );
   
   // Stores 8-bit values for item prices
@@ -74,7 +83,7 @@ module retro_vending ( // Main vending logic
           next_state <= COLLECTING; 
       
       COLLECTING:
-        if (select && total >= item_prices[selected_item]) 
+        if (select_pulse && total >= item_prices[selected_item]) 
           next_state <= DISPENSING; 
       
       DISPENSING: 
