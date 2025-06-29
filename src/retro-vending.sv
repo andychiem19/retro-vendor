@@ -6,7 +6,8 @@ module retro_vending ( // Main vending logic
   input coin_25,
   input next_item,
   input select,
-  output reg dispense
+  output reg dispense,
+  output reg [7:0] change
 );
 
   // Defines the states for the FSM
@@ -84,11 +85,17 @@ module retro_vending ( // Main vending logic
   
 	// Sends dispense signal
   always @(posedge clk or posedge reset) begin
-  	if (reset)
+  	if (reset) begin
     	dispense <= 0;
-    else if (state == DISPENSING)
+      change <= 0;
+    end
+    else if (state == DISPENSING) begin
     	dispense <= 1;
-    else
+      change <= total - (item_prices[selected_item]);
+    end
+    else begin
       	dispense <= 0;
+        change <= 0;
+    end
   end
 endmodule

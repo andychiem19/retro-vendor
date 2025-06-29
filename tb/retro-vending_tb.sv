@@ -39,8 +39,23 @@ module retro_vending_tb;
 
     #100 reset = 0;
 
-    #50 coin_10 = 1;
-    #10 coin_10 = 0;
+    #50 coin_25 = 1;
+    #10 coin_25 = 0;
+
+    #50 coin_25 = 1;
+    #10 coin_25 = 0;
+    
+    #50 coin_25 = 1;
+    #10 coin_25 = 0;
+    
+    #50 coin_25 = 1;
+    #10 coin_25 = 0;
+
+    #50 coin_25 = 1;
+    #10 coin_25 = 0;
+
+    #50 next_item = 1;
+    #10 next_item = 0;
 
     #50 next_item = 1;
     #10 next_item = 0;
