@@ -28,11 +28,11 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 | Coin Accumulator | Accepts 5¢, 10¢, and 25¢ coins and maintains an accurate running total | 
 | Debounced Inputs | Edge-detected coin/button inputs for hardware synthesizability | 6/26/2025
 | Item Selection | Scrolling selector with four unique item-price pairs | 
+| Change Return | Stores leftover money after purchase for change return| 6/29/2025
 
 *Planned Features* 
 | Feature | Description |
 |--------|-------------|
-| Change Return | Implement logic for dispensing leftover change |
 | Pixel Display | Text-based video output using onboard SoC CPU + external monitor |
 | FPGA Deployment | Final implementation on Zynq board with a stylized UI |
 
