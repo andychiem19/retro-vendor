@@ -3,3 +3,10 @@
 *.log
 *.bin
 *.fst
+*.str
+*.jou
+
+/fpga/sim/*
+/fpga/vivado_project/*
+/.vscode*
+
