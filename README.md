@@ -6,6 +6,7 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 `Visual Studio Code`
 `Verilog/SystemVerilog`
 `Vivado`
+`Git`
 `Icarus Verilog 12.0`
 `GTKWave`
 
