@@ -11,6 +11,11 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 `GTKWave`
 
 ---
+#### **Demos**
+
+[Initial RTL verification](https://www.youtube.com/embed/YAWXXol3p50?si=F_tX5mKkLMV4oSuX): Uses on-board I/O to verify RTL functions properly; demonstrates that debouncer functions properly and responds well to real-world button inputs
+
+---
 
 #### **Learning Objectives**
 
@@ -40,10 +45,6 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 | Pixel Graphics | Simple pixel or tile-based UI |
 
 ---
-#### **Demos**
-
-[Initial RTL verification](https://www.youtube.com/embed/YAWXXol3p50?si=F_tX5mKkLMV4oSuX): Uses on-board I/O to verify RTL functions properly; demonstrates that debouncer functions properly and responds well to real-world button inputs
-
 
 #### **Simulation Instructions**
 
