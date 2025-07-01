@@ -42,19 +42,17 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 ---
 #### **Demos**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YAWXXol3p50?si=F_tX5mKkLMV4oSuX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[Initial RTL verification](https://www.youtube.com/embed/YAWXXol3p50?si=F_tX5mKkLMV4oSuX): Uses on-board I/O to verify RTL functions properly; demonstrates that debouncer functions properly and responds well to real-world button inputs
 
-*First hardware demo*
 
 #### **Simulation Instructions**
 
-1. Install VS Code and Icarus Verilog 12.0 w/GTKWave
-2. [Install the module files here](src)
-3. [Install a testbench](tb) or [make your own](#make-your-own)
-4. Run the following command in the Powershell terminal after setting Icarus Verilog 12.0 as your compiler
+1. Install VS Code (+Verilog/SystemVerilog extension) and Icarus Verilog 12.0 w/GTKWave
+2. Install this directory and open it in VS Code
+3. Run the following command in the Powershell terminal
 
 ```powershell
-iverilog -g2012 -o sim.out src/*.sv tb/retro-vending_tb.sv && vvp sim.out && if exist retro_vending.vcd ( start gtkwave retro_vending.vcd )
+iverilog -g2012 -o sim.out src/*.sv tb/*.sv && vvp sim.out && if exist retro_vending.vcd ( start gtkwave retro_vending.vcd )
 ```
 
 <a>
