@@ -1,4 +1,4 @@
-module hdmi_core (
+module vga_generator (
     input wire clk_25mhz, //25 MHz clock for 640x480 VGA output
     input wire reset,
     output wire h_sync,

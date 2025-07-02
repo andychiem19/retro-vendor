@@ -21,7 +21,8 @@ wire tmds_red;
 
 clk_wiz_0 instance_name
    (
-    .clk_25mhz(clk_25mhz),     
+    .clk_25mhz(clk_25mhz),  
+    .clk_250mhz(clk_250mhz),   
     .reset(reset), 
     .locked(locked),       
     .clk_in1(clk)     
@@ -46,7 +47,7 @@ retro_vending rv (
 
 // HDMI Implementation
 
-hdmi_core hdmi (
+vga_generator vga (
   .clk(clk_25mhz),
   .reset(reset),
   .red(red),
