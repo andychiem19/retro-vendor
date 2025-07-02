@@ -1,11 +1,12 @@
-module vga_generator (
+module vga_generator(
     input wire clk_25mhz, //25 MHz clock for 640x480 VGA output
     input wire reset,
     output wire h_sync,
     output wire v_sync,
     output wire [7:0] red,
     output wire [7:0] green,
-    output wire [7:0] blue
+    output wire [7:0] blue,
+    output wire video_on
 );
 
 
@@ -45,10 +46,10 @@ end
 assign h_sync = ~((h_count >= H_ACTIVE + H_FRONT) && (h_count < H_ACTIVE + H_FRONT + H_SYNC));
 assign v_sync = ~((v_count >= V_ACTIVE + V_FRONT) && (v_count < V_ACTIVE + V_FRONT + V_SYNC));
 
- wire video_active = (h_count < H_ACTIVE) && (v_count < V_ACTIVE);
+assign video_on = (h_count < H_ACTIVE) && (v_count < V_ACTIVE);
 
   // Output color
-  assign red   = video_active ? 8'hFF : 8'h00;
+  assign red   = video_on ? 8'hFF : 8'h00;
   assign green = 8'h00;
   assign blue  = 8'h00;
 
