@@ -7,7 +7,7 @@ module retro_vending ( // Main vending logic
   input next_item,
   input select,
   output reg[1:0] selected_item,
-  output reg dispense,
+  output dispense,
   output reg [7:0] change,
   output reg [1:0] state,
   output wire [7:0] total
@@ -21,7 +21,6 @@ module retro_vending ( // Main vending logic
   reg [1:0]   next_state;  // Makes 2-bit registers to store states      // Determines which item the user has selected for purchase
   reg [7:0]   item_prices [0:3];  
   reg [26:0] dispense_timer = 0; 
-  reg        dispense_flag = 0;
 
   // Debounces next_item
   edge_detector ed_nxt (
@@ -97,27 +96,25 @@ module retro_vending ( // Main vending logic
   end
   
 	// Sends dispense signal
-  always @(posedge clk or posedge reset) begin
-  	if (reset) begin
-    	dispense <= 0;
-      change <= 0;
-      dispense_timer <= 0;
-      dispense_flag <= 0;
-    end
-    else if (state == DISPENSING) begin
-      dispense_timer <= 27'd125000000;
-    	dispense_flag <= 1;
-      change <= total - (item_prices[selected_item]);
-    end
-    else if (dispense_timer > 0) begin
+always @(posedge clk or posedge reset) begin
+  if (reset) begin
+    dispense_timer <= 0;
+    change <= 0;
+  end 
+  else begin
+    if (next_state == DISPENSING && state != DISPENSING) begin
+      dispense_timer <= 27'd125_000_000;  // 1 sec
+      change <= total - item_prices[selected_item];
+    end 
+    else if (state == DISPENSING && dispense_timer > 0) begin
       dispense_timer <= dispense_timer - 1;
     end
 
-    else begin
-      	dispense_flag <= 0;
-        change <= 0;
-    end
-
-    dispense <= dispense_flag;
+    // reset change on last cycle of DISPENSING
+    if (state == DISPENSING && dispense_timer == 1)
+      change <= 0;
   end
+end
+
+  assign dispense = (state == DISPENSING);
 endmodule
