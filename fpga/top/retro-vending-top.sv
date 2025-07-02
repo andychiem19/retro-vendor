@@ -20,8 +20,8 @@ wire [7:0] red;
 wire [7:0] green;
 wire [7:0] blue;
 wire h_sync, v_sync, video_on;
-wire tmds_blue, tmds_green, tmds_red;
-wire serial_red, serial_green, serial_blue;
+wire [9:0] tmds_blue, tmds_green, tmds_red;
+wire [9:0] serial_red, serial_green, serial_blue;
 
 //25 MHz pixel clock and 250 MHz clock to serialize 10-bit TMDS
 clk_wiz_0 instance_name
