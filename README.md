@@ -11,13 +11,6 @@ A Verilog/SystemVerilog based vending machine FSM intended for FPGA simulation. 
 `GTKWave`
 
 ---
-#### **Demos**
-
-[**Initial RTL verification**](https://www.youtube.com/embed/YAWXXol3p50?si=F_tX5mKkLMV4oSuX) –
-Uses on-board I/O to verify RTL; demonstrates that debouncer functions properly and responds well to real-world button inputs
-
-
----
 
 #### **Learning Objectives**
 
@@ -25,6 +18,15 @@ Uses on-board I/O to verify RTL; demonstrates that debouncer functions properly 
 - Hardware-synthesizable I/O management using debouncing and edge-detection for real-world inputs
 - VGA signal generation with clocked video timing logic for digital display output
 - TMDS encoding and manual serialization of data signals
+
+---
+
+#### **File Structure**
+
+`/docs` - Extra documentation that you probably can't be bothered to read\
+`/fpga` - Current version of the project, FPGA implementation source code, top file, and Xilinx constraints\
+`/src` - Legacy source code\
+`/tb` - Legacy testbenches
 
 ---
 
@@ -46,6 +48,13 @@ Uses on-board I/O to verify RTL; demonstrates that debouncer functions properly 
 |--------|-------------|
 | HDMI Video Output | Direct framebuffer or text-based video output over HDMI from programmable logic (PL) |
 | Pixel Graphics | Simple pixel or tile-based UI |
+
+---
+
+#### **Demos**
+
+[**Initial RTL verification**](https://www.youtube.com/embed/YAWXXol3p50?si=F_tX5mKkLMV4oSuX) –
+Uses on-board I/O to verify RTL; demonstrates that debouncer functions properly and responds well to real-world button inputs
 
 ---
 #### **Simulation (Legacy FSM)**
