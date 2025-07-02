@@ -21,11 +21,16 @@ wire [7:0] green;
 wire [7:0] blue;
 wire h_sync, v_sync, video_on;
 wire [9:0] tmds_blue, tmds_green, tmds_red;
-wire [9:0] serial_red, serial_green, serial_blue;
+wire serial_red, serial_green, serial_blue;
+wire [1:0] state;
+wire show_text = (state == 2'b00 || state == 2'b01 || state == 2'b10);
+wire [1:0] selected_item;
+wire [7:0] change;
+wire [7:0] total;
+ 
 
 //25 MHz pixel clock and 250 MHz clock to serialize 10-bit TMDS
-clk_wiz_0 instance_name
-   (
+clk_wiz_0 instance_name (
     .clk_25mhz(clk_25mhz),  
     .clk_250mhz(clk_250mhz),   
     .reset(reset), 
@@ -47,7 +52,10 @@ retro_vending rv (
     .next_item(next_item),
     .select(select),
     .dispense(dispense),
-    .change()
+    .change(change),
+    .selected_item(selected_item),
+    .state(state),
+    .total(total)
 );
 
 // HDMI Implementation Start
@@ -60,7 +68,13 @@ vga_generator vga (
   .blue(blue),
   .h_sync(h_sync),
   .v_sync(v_sync),
-  .video_on(video_on)
+  .video_on(video_on),
+  .show_text(show_text),
+  .dispense(dispense),
+  .change(change),
+  .selected_item(selected_item),
+  .state(state),
+  .total(total)
 );
 
 //TMDS Encoders

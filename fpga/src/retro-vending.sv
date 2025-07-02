@@ -6,18 +6,19 @@ module retro_vending ( // Main vending logic
   input coin_25,
   input next_item,
   input select,
+  output reg[1:0] selected_item,
   output reg dispense,
-  output reg [7:0] change
+  output reg [7:0] change,
+  output reg [1:0] state,
+  output wire [7:0] total
 );
 
   // Defines the states for the FSM
   parameter 	IDLE = 2'b00, COLLECTING = 2'b01, DISPENSING = 2'b10;
 
-  wire [7:0]  total;              // 8-bit register to store inserted total
   wire        next_item_pulse;    // Debounced signal for next_item button
   wire        select_pulse;       // Debounced signal for select button
-  reg [1:0]   state, next_state;  // Makes 2-bit registers to store states
-  reg[1:0]    selected_item;      // Determines which item the user has selected for purchase
+  reg [1:0]   next_state;  // Makes 2-bit registers to store states      // Determines which item the user has selected for purchase
   reg [7:0]   item_prices [0:3];  
   reg [26:0] dispense_timer = 0; 
   reg        dispense_flag = 0;
@@ -89,7 +90,8 @@ module retro_vending ( // Main vending logic
           next_state = DISPENSING; 
       
       DISPENSING: 
-      	next_state = IDLE; 
+        if (dispense_timer == 0)
+      	  next_state = IDLE; 
       
     endcase
   end

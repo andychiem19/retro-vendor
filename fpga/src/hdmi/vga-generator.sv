@@ -1,14 +1,21 @@
 module vga_generator(
     input wire clk_25mhz, //25 MHz clock for 640x480 VGA output
     input wire reset,
+    input wire show_text,
     output wire h_sync,
     output wire v_sync,
     output wire [7:0] red,
     output wire [7:0] green,
     output wire [7:0] blue,
-    output wire video_on
+    output wire video_on,
+    
+    input wire [1:0] state,
+    input wire [7:0] total,
+    input wire [7:0] change,
+    input wire dispense,
+    input wire [1:0] selected_item
+  
 );
-
 
 //VGA standard constants for 640x480 @60Hz
 localparam H_ACTIVE = 640;
@@ -49,8 +56,21 @@ assign v_sync = ~((v_count >= V_ACTIVE + V_FRONT) && (v_count < V_ACTIVE + V_FRO
 assign video_on = (h_count < H_ACTIVE) && (v_count < V_ACTIVE);
 
   // Output color
-  assign red   = video_on ? 8'hFF : 8'h00;
-  assign green = 8'h00;
-  assign blue  = 8'h00;
+  wire text_on;
+
+text_overlay overlay (
+    .x(h_count),
+    .y(v_count),
+    .show_text(show_text),
+    .text_pixel(text_on),
+    .state(state),
+    .total(total),
+    .change(change),
+    .selected_item(selected_item)
+);
+
+assign red   = (video_on && text_on) ? 8'hFF : 8'h00;
+assign green = (video_on && text_on) ? 8'hFF : 8'h00;
+assign blue  = (video_on && text_on) ? 8'hFF : 8'h00;
 
 endmodule
