@@ -12,6 +12,15 @@ A hardware-synthesizable vending machine designed using Verilog and SystemVerilo
 
 ---
 
+#### **Demos**
+
+[**Initial RTL verification**](https://youtu.be/YAWXXol3p50?si=UQe-jVr7k9robtwH) –
+Uses on-board I/O to verify RTL; demonstrates that debouncer responds well to real-world button inputs\
+[**HDMI Output and Pixel Text**](https://youtu.be/nstLu7CKKXI?si=7paIRkDUl7c_qRaL) –
+Demonstrates the results of my HDMI signal generation and interfacing, as well as some bitmapped text outputs
+
+---
+
 #### **Learning Objectives**
 
 - **FSM Implementation** – Designed and verified a hardware finite state machine (FSM) with well-defined states and transitions
@@ -46,16 +55,6 @@ A hardware-synthesizable vending machine designed using Verilog and SystemVerilo
 |--------|-------------|
 | Logic Improvements | Add more states/state interrupts and visual output for those states to indicate selected items, etc. |
 | Visual Improvements | Increase text size for readability, add more UI elements if wanted
-
----
-
-#### **Demos**
-
-[**Initial RTL verification**](https://youtu.be/YAWXXol3p50?si=UQe-jVr7k9robtwH) –
-Uses on-board I/O to verify RTL; demonstrates that debouncer responds well to real-world button inputs\
-[**HDMI Output and Pixel Text**](https://youtu.be/nstLu7CKKXI?si=7paIRkDUl7c_qRaL) –
-Demonstrates the results of my HDMI signal generation and interfacing, as well as some bitmapped text outputs
-
 
 ---
 #### **Simulation (Legacy FSM)**
