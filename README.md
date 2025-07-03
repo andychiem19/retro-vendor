@@ -51,7 +51,7 @@ A hardware-synthesizable vending machine designed using Verilog and SystemVerilo
 
 #### **Demos**
 
-[**Initial RTL verification**](https://www.youtube.com/embed/YAWXXol3p50?si=F_tX5mKkLMV4oSuX) –
+[**Initial RTL verification**](https://youtu.be/YAWXXol3p50?si=UQe-jVr7k9robtwH) –
 Uses on-board I/O to verify RTL; demonstrates that debouncer responds well to real-world button inputs\
 [**HDMI Output and Pixel Text**](https://youtu.be/nstLu7CKKXI?si=7paIRkDUl7c_qRaL) –
 Demonstrates the results of my HDMI signal generation and interfacing, as well as some bitmapped text outputs
