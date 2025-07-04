@@ -1,4 +1,5 @@
 module retro_vending ( // Main vending logic
+
   input clk,
   input reset,
   input coin_5,
@@ -6,10 +7,11 @@ module retro_vending ( // Main vending logic
   input coin_25,
   input next_item,
   input select,
-  output reg[1:0] selected_item,
+
   output dispense,
-  output reg [7:0] change,
   output reg [1:0] state,
+  output reg[1:0] selected_item,
+  output reg [7:0] change,
   output wire [7:0] total
 );
 
@@ -19,7 +21,7 @@ module retro_vending ( // Main vending logic
   wire        next_item_pulse;    // Debounced signal for next_item button
   wire        select_pulse;       // Debounced signal for select button
   reg [1:0]   next_state;  // Makes 2-bit registers to store states      // Determines which item the user has selected for purchase
-  reg [7:0]   item_prices [0:3];  
+  reg [7:0]   item_prices [0:3];  // Stores item prices
   reg [26:0] dispense_timer = 0; 
 
   // Debounces next_item

@@ -1,7 +1,7 @@
 module text_overlay (
     input  wire [9:0] x,
     input  wire [9:0] y,
-    input  wire       show_text,   
+    input  wire show_text,   
     output reg  text_pixel,
 
     input wire [1:0] state,

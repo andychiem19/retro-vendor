@@ -1,3 +1,4 @@
+//encodes .hex font file in ASCII
 module char_rom (
     input wire [10:0] addr,   // 11-bit address: 8 rows × 256 ASCII chars
     output reg [7:0] data

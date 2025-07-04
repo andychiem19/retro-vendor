@@ -1,3 +1,4 @@
+// Runs reset on module startup once to properly initialize all signals
 module startup_reset (
     input clk,
     output reg reset
