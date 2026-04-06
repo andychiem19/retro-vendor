@@ -1,4 +1,4 @@
-### Retro Vending Machine
+### RetroVendor
 A hardware-synthesizable vending machine designed using Verilog and SystemVerilog, featuring a finite state machine, debounced inputs, and HDMI-based video output. Designed for simulation, synthesis, and deployment on the Zybo Z7 FPGA board.
 
 **Tools Used**
